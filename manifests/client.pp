@@ -7,8 +7,10 @@
 #
 
 class git::client {
-  case $operatingsystem {
+
+  case $::operatingsystem {
     centos, redhat, debian, ubuntu: { $package_name = 'git' }
+    gentoo: { $package_name = 'git' }
     default: { $package_name = 'git-core' }
   }
 
@@ -17,5 +19,3 @@ class git::client {
   }
 }
 
-  }
-}
